@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { Trash2 } from "lucide-react";
 
 // Define the API response types
-interface Character {
+export interface Character {
   id: number | string;
   name: string;
   status: string;
@@ -212,7 +212,7 @@ export default function CharactersPage() {
 
       {!hasNextPage && data && (
         <div className="text-center mt-8 mb-4">
-          <p className="text-gray-500">You've reached the end!</p>
+          <p className="text-gray-500">You&apos;ve reached the end!</p>
         </div>
       )}
     </div>

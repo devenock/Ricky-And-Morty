@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Character } from "@/app/characters/page";
 
 export default function CreateCharacterPage() {
   const [name, setName] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   const [species, setSpecies] = useState<string>("");
   const [image, setImage] = useState<string>("");
-  const [characters, setCharacters] = useState<any[]>([]);
+  const [characters, setCharacters] = useState<Character[]>([]);
 
   // Load existing characters on component mount
   useEffect(() => {
