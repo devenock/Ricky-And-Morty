@@ -27,8 +27,8 @@ Ensure you have the following installed:
 
 ### Clone the Repository
 ```sh
-git clone https://github.com/your-username/rick-and-morty-explorer.git
-cd rick-and-morty-explorer
+git clone git@github.com:devenock/Ricky-And-Morty.git
+cd Ricky-And-Morty
 ```
 
 ### Install Dependencies
