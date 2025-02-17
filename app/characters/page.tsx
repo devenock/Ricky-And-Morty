@@ -35,7 +35,7 @@ export default function CharactersPage() {
   if (status === "error") {
     return (
       <div className="text-red-500 p-4">
-        An error has occurred: {error.message}
+        An error has occurred: {error?.message}
       </div>
     );
   }
