@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Trash2 } from "lucide-react";
 import { Character } from "../types";
+import StatusBadge from "@/components/StatusBadge";
 
 interface CharacterCardProps {
   character: Character;
@@ -8,18 +9,16 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ character, onDelete }: CharacterCardProps) {
-  const statusColor =
-    character.status === "Alive"
-      ? "text-green-500"
-      : character.status === "Dead"
-        ? "text-red-500"
-        : "text-gray-500";
-
   return (
     <div className="relative flex flex-col overflow-hidden rounded-lg shadow-lg border border-gray-200 transition-transform duration-200 hover:shadow-xl bg-white dark:bg-gray-800">
       {character.isLocal && onDelete && (
         <button
-          onClick={() => onDelete(character.id)}
+          // onClick={() => onDelete(character.id)}
+            onClick={() => {
+                if (confirm("Are you sure you want to delete this character?")) {
+                    onDelete(character.id);
+                }
+            }}
           className="absolute top-2 right-2 z-10 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors duration-200"
           title="Delete character"
         >
@@ -49,11 +48,11 @@ export function CharacterCard({ character, onDelete }: CharacterCardProps) {
       </div>
 
       <div className="p-4 flex flex-col space-y-2 flex-grow">
-        <h4 className="font-semibold text-lg">{character.name}</h4>
-        <p className={statusColor}>Status: {character.status}</p>
-        <p className="text-gray-700 dark:text-gray-300">
-          Species: {character.species}
-        </p>
+          <h4 className="font-semibold text-lg">{character.name}</h4>
+          <StatusBadge status={character.status} />
+          <p className="text-gray-700 dark:text-gray-300">
+           Species: {character.species}
+         </p>
       </div>
     </div>
   );
